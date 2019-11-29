@@ -41,7 +41,7 @@ pod 'BFLoadingView'
 
 ## Author
 
-Matthias Nagel, matthias@bitfactory.io
+Matthias Nagel, matthias@bitfactory.io  
 [Bitfactory GmbH](https://www.bitfactory.io)
 
 ## License
