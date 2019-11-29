@@ -12,7 +12,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 BFLoadingView is a nice morphing poligonal activity indicator design as an animating HUD. Try to add it to your `UIViewController` and you should get the following result:
 
-![](animation.gif)
+![](https://github.com/bitfactoryio/BFLoadingView/raw/master/animation.gif)
 
 ### Use it!
 
@@ -42,6 +42,7 @@ pod 'BFLoadingView'
 ## Author
 
 Matthias Nagel, matthias@bitfactory.io
+[Bitfactory GmbH](https://www.bitfactory.io)
 
 ## License
 
