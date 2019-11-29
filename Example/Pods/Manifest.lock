@@ -1,0 +1,16 @@
+PODS:
+  - BFLoadingView (1.0.0)
+
+DEPENDENCIES:
+  - BFLoadingView (from `../`)
+
+EXTERNAL SOURCES:
+  BFLoadingView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BFLoadingView: 58ea3d3181402b84b6d3816f4fff215066562951
+
+PODFILE CHECKSUM: 851ab9a78e1beb00d9e0972614d8f7ad2142df83
+
+COCOAPODS: 1.8.4

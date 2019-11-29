@@ -1,0 +1,6 @@
+platform :ios, '11.0'
+use_frameworks!
+
+target 'BFLoadingView_Example' do
+  pod 'BFLoadingView', :path => '../'
+end

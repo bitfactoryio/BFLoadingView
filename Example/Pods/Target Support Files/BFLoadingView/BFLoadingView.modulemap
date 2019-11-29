@@ -1,0 +1,6 @@
+framework module BFLoadingView {
+  umbrella header "BFLoadingView-umbrella.h"
+
+  export *
+  module * { export * }
+}
