@@ -22,8 +22,13 @@ Then call the following when you want to show the animated activity indicator. T
 ```swift
 showLoadingView()
 ```
-When you are done with your task in code you can also hide the indicator again by the following function:
 
+But yeah, you can also set colors. How about this:
+```swift
+showLoadingView(backgroundColor: .red, triangle1Color: .black, triangle2Color: .blue)
+```
+
+When you are done with your task in code you can also hide the indicator again by the following function:
 ```swift
 hideLoadingView()
 ```

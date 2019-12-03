@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: {
-            //self.hideLoadingView()
+            self.hideLoadingView()
         })
     }
 }
