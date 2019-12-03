@@ -9,18 +9,26 @@
 import UIKit
 
 final class LoadingView: UIView {
-    fileprivate var backgroundLayer: CAShapeLayer!
-    fileprivate var triangle1Layer: CAShapeLayer!
-    fileprivate var triangle2Layer: CAShapeLayer!
+    private var backgroundLayer: CAShapeLayer!
+    private var triangle1Layer: CAShapeLayer!
+    private var triangle2Layer: CAShapeLayer!
     
-    fileprivate let marginMin = -15
-    fileprivate let marginMax = 15
+    private let marginMin = -15
+    private let marginMax = 15
     
     public static let width: CGFloat = 100
     public static let height: CGFloat = 125
-        
-    init() {
+    
+    private var shapeBackgrounColor: UIColor!
+    private var triangle1Color: UIColor!
+    private var triangle2Color: UIColor!
+    
+    init(backgroundColor: UIColor, triangle1Color: UIColor, triangle2Color: UIColor) {
         super.init(frame: CGRect(x: 0, y: 0, width: LoadingView.width, height: LoadingView.height))
+        
+        self.shapeBackgrounColor = backgroundColor
+        self.triangle1Color = triangle1Color
+        self.triangle2Color = triangle2Color
         
         let currentPoints = getRandomPoints()
         backgroundLayer = getRandomShape(points: currentPoints)
@@ -40,7 +48,7 @@ final class LoadingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func animate(fromBackgroundPath: CGPath, fromTriangle1Path: CGPath, fromTriangle2Path: CGPath) {
+    private func animate(fromBackgroundPath: CGPath, fromTriangle1Path: CGPath, fromTriangle2Path: CGPath) {
         
         let randomPoints = getRandomPoints()
         
@@ -66,6 +74,7 @@ final class LoadingView: UIView {
             self.animate(fromBackgroundPath: toBackgroundPath, fromTriangle1Path: toTriangle1Path, fromTriangle2Path: toTriangle2Path)
         }
         backgroundLayer.add(backgroundAnimation, forKey: "backgroundAnimation")
+        backgroundLayer.path = toBackgroundPath
         CATransaction.commit()
         
         let triangle1Animation = CABasicAnimation(keyPath: "path")
@@ -74,28 +83,29 @@ final class LoadingView: UIView {
         triangle1Animation.duration = 1
         triangle1Animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         triangle1Layer.add(triangle1Animation, forKey: "triangle1Animation")
-        
+        triangle1Layer.path = toTriangle1Path
+
         let triangle2Animation = CABasicAnimation(keyPath: "path")
         triangle2Animation.fromValue = fromTriangle2Path
         triangle2Animation.toValue = toTriangle2Path
         triangle2Animation.duration = 1
         triangle2Animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         triangle2Layer.add(triangle2Animation, forKey: "triangle2Animation")
-        
+        triangle2Layer.path = toTriangle2Path
     }
     
-    func getRandomPoints() -> [CGPoint] {
-      let point1 = CGPoint(x: LoadingView.width/2 + getRandomMargin(), y: 0 + getRandomMargin())
-      let point2 = CGPoint(x: LoadingView.width + getRandomMargin(), y: LoadingView.height/3 + getRandomMargin())
-      let point3 = CGPoint(x: LoadingView.width + getRandomMargin(), y: LoadingView.height/3*2 + getRandomMargin())
-      let point4 = CGPoint(x: LoadingView.width/2 + getRandomMargin(), y: LoadingView.height + getRandomMargin())
-      let point5 = CGPoint(x: 0 + getRandomMargin(), y: LoadingView.height/3*2 + getRandomMargin())
-      let point6 = CGPoint(x: 0 + getRandomMargin(), y: LoadingView.height/3 + getRandomMargin())
+    private func getRandomPoints() -> [CGPoint] {
+        let point1 = CGPoint(x: LoadingView.width/2 + getRandomMargin(), y: 0 + getRandomMargin())
+        let point2 = CGPoint(x: LoadingView.width + getRandomMargin(), y: LoadingView.height/3 + getRandomMargin())
+        let point3 = CGPoint(x: LoadingView.width + getRandomMargin(), y: LoadingView.height/3*2 + getRandomMargin())
+        let point4 = CGPoint(x: LoadingView.width/2 + getRandomMargin(), y: LoadingView.height + getRandomMargin())
+        let point5 = CGPoint(x: 0 + getRandomMargin(), y: LoadingView.height/3*2 + getRandomMargin())
+        let point6 = CGPoint(x: 0 + getRandomMargin(), y: LoadingView.height/3 + getRandomMargin())
         
         return [point1, point2, point3, point4, point5, point6]
     }
     
-    fileprivate func getRandomShape(points: [CGPoint]) -> CAShapeLayer {
+    private func getRandomShape(points: [CGPoint]) -> CAShapeLayer {
         
         let path = UIBezierPath()
         path.move(to: points[0])
@@ -107,13 +117,13 @@ final class LoadingView: UIView {
         path.addLine(to: points[0])
         
         let layer = CAShapeLayer()
-        layer.fillColor = #colorLiteral(red: 0.5217987895, green: 0.5218115449, blue: 0.52180475, alpha: 1).cgColor
+        layer.fillColor = shapeBackgrounColor.cgColor
         layer.path = path.cgPath
         
         return layer
     }
     
-    func getTriangle1Shape(points: [CGPoint]) -> CAShapeLayer {
+    private func getTriangle1Shape(points: [CGPoint]) -> CAShapeLayer {
         
         let path = UIBezierPath()
         path.move(to: points[0])
@@ -123,14 +133,14 @@ final class LoadingView: UIView {
         path.addLine(to: points[0])
         
         let layer = CAShapeLayer()
-        layer.fillColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1).cgColor
+        layer.fillColor = triangle1Color.cgColor
         layer.lineWidth = 0
         layer.path = path.cgPath
         
         return layer
     }
     
-    func getTriangle2Shape(points: [CGPoint]) -> CAShapeLayer {
+    private func getTriangle2Shape(points: [CGPoint]) -> CAShapeLayer {
         
         let path = UIBezierPath()
         path.move(to: points[1])
@@ -139,14 +149,14 @@ final class LoadingView: UIView {
         path.addLine(to: points[1])
         
         let layer = CAShapeLayer()
-        layer.fillColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
+        layer.fillColor = triangle2Color.cgColor
         layer.lineWidth = 0
         layer.path = path.cgPath
         
         return layer
     }
     
-    func getRandomMargin() -> CGFloat {
+    private func getRandomMargin() -> CGFloat {
         return CGFloat(Int.random(in: marginMin ..< marginMax))
     }
 }
