@@ -13,9 +13,10 @@ fileprivate struct Constants {
 }
 
 extension UIViewController {
-    
-    public func showLoadingView() {
-        let loadingView = LoadingView()
+    public func showLoadingView(backgroundColor: UIColor = #colorLiteral(red: 0.5217987895, green: 0.5218115449, blue: 0.52180475, alpha: 1),
+                                triangle1Color: UIColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1),
+                                triangle2Color: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)) {
+        let loadingView = LoadingView(backgroundColor: backgroundColor, triangle1Color: triangle1Color, triangle2Color: triangle2Color)
         loadingView.alpha = 0
         view.addSubview(loadingView)
         
@@ -34,7 +35,6 @@ extension UIViewController {
     
     public func hideLoadingView() {
         for subview in view.subviews where subview.tag == Constants.loadingViewTag {
-            
             UIView.animate(withDuration: 0.25, animations: {
                 subview.alpha = 0
             }, completion: { _ in
