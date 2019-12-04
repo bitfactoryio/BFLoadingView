@@ -36,8 +36,8 @@ extension UIViewController {
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         loadingView.widthAnchor.constraint(equalToConstant: LoadingView.width).isActive = true
         loadingView.heightAnchor.constraint(equalToConstant: LoadingView.height).isActive = true
-        loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        loadingView.centerXAnchor.constraint(equalTo: window.centerXAnchor).isActive = true
+        loadingView.centerYAnchor.constraint(equalTo: window.centerYAnchor).isActive = true
         
         UIView.animate(withDuration: 0.25) {
             loadingView.alpha = 1
