@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'BFLoadingView'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'BFLoadingView is the new morphing polygonal activity indicator'
 
   s.description      = <<-DESC
