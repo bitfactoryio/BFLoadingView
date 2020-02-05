@@ -3,7 +3,7 @@
 //  BFLoadingView
 //
 //  Created by Matthias Nagel on 29.11.19.
-//  Copyright © 2019 Matthias Nagel. All rights reserved.
+//  Copyright © 2020 Matthias Nagel. All rights reserved.
 //
 
 import UIKit
@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.black
+        self.view.backgroundColor = .black
     }
     
     override func viewDidAppear(_ animated: Bool) {

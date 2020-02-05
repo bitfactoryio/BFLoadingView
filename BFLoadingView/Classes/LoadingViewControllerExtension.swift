@@ -3,7 +3,7 @@
 //  ActivityIndicator
 //
 //  Created by Matthias Nagel on 29.11.19.
-//  Copyright © 2019 Matthias Nagel. All rights reserved.
+//  Copyright © 2020 Matthias Nagel. All rights reserved.
 //
 
 import UIKit
@@ -16,14 +16,15 @@ fileprivate struct Constants {
 extension UIViewController {
     public func showLoadingView(backgroundColor: UIColor = #colorLiteral(red: 0.5217987895, green: 0.5218115449, blue: 0.52180475, alpha: 1),
                                 triangle1Color: UIColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1),
-                                triangle2Color: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)) {
+                                triangle2Color: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5),
+                                viewBackgroundColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25)) {
         
         guard let window = UIApplication.shared.keyWindow else {
             return
         }
         
         let backgroundLoadingView = UIView(frame: window.bounds)
-        backgroundLoadingView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25)
+        backgroundLoadingView.backgroundColor = viewBackgroundColor
         backgroundLoadingView.alpha = 0
         backgroundLoadingView.tag = Constants.loadingBackgroundViewTag
         window.addSubview(backgroundLoadingView)
