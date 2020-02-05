@@ -25,7 +25,7 @@ showLoadingView()
 
 But yeah, you can also set colors. How about this:
 ```swift
-showLoadingView(backgroundColor: .red, triangle1Color: .black, triangle2Color: .blue)
+showLoadingView(backgroundColor: .red, triangle1Color: .black, triangle2Color: .blue, viewBackgroundColor: .yellow)
 ```
 
 When you are done with your task in code you can also hide the indicator again by the following function:
