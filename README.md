@@ -1,12 +1,17 @@
 # BFLoadingView
 
 [![Version](https://img.shields.io/cocoapods/v/BFLoadingView.svg?style=flat)](https://cocoapods.org/pods/BFLoadingView)
-[![License](https://img.shields.io/cocoapods/l/BFLoadingView.svg?style=flat)](https://cocoapods.org/pods/BFLoadingView)
 [![Platform](https://img.shields.io/cocoapods/p/BFLoadingView.svg?style=flat)](https://cocoapods.org/pods/BFLoadingView)
+![Swift version](https://img.shields.io/badge/swift-5.1-orange.svg)
+[![License](https://img.shields.io/cocoapods/l/BFTableView.svg?style=flat)](https://cocoapods.org/pods/BFTableView.)
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo, and open the workspace `Example/BFLoadingView.xcworkspace` in XCode.
+
+## Requirements
+- iOS 11.0+
+- Swift 5.1
 
 ## Usage
 

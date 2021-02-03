@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = 'https://www.bitfactory.io'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Matthias Nagel' => 'matthias@bitfactory.io' }
   s.source           = { :git => 'https://github.com/bitfactoryio/BFLoadingView.git', :tag => s.version.to_s }
